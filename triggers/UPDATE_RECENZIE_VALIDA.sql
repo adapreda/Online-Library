@@ -1,0 +1,11 @@
+create trigger UPDATE_RECENZIE_VALIDA
+    before update of COD_EBOOK,COD_UT
+    on RECENZII
+    for each row
+BEGIN
+    RAISE_APPLICATION_ERROR(
+    -20010, 'NU PUTETI MODIFICA UTILIZATORUL SAU EBOOKUL ACESTEI RECENZII'
+    );
+end;
+/
+
