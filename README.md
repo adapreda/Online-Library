@@ -7,6 +7,16 @@ Proiectul "Librarie Digitala" consta in proiectarea si implementarea unei baze d
 Implementarea acopera atat structura datelor, cat si regulile de business, validate prin constrangeri, triggere si subprograme stocate.
 
 
+Scopul principal al bazei de date este de a permite:
+
+- administrarea eficienta a ebook-urilor disponibile intr-o librarie digitala;
+- gestionarea autorilor, editurilor si categoriilor literare;
+- evidenta utilizatorilor si a comenzilor plasate de acestia;
+- aplicarea si monitorizarea discounturilor;
+- pastrarea istoricului comenzilor si recenziilor;
+- validarea automata a regulilor de integritate si a cerintelor functionale.
+
+Baza de date ofera suport complet pentru functionarea unei platforme de vanzare de carti electronice.
 
 
 
