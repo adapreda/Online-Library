@@ -2,6 +2,13 @@
 ## **Baza de date pentru gestionarea unui magazin online de ebook-uri**
 
 
+Proiectul "Librarie Digitala" consta in proiectarea si implementarea unei baze de date relationale destinata gestionarii activitatii unui magazin online de ebook-uri. Baza de date este realizata in Oracle Database 21c, utilizand limbajul SQL si extensiile PL/SQL, si urmareste respectarea principiilor de modelare conceptuala, logica si fizica studiate in cadrul cursului Sisteme de Gestionare si Baze de Date.
+
+Implementarea acopera atat structura datelor, cat si regulile de business, validate prin constrangeri, triggere si subprograme stocate.
+
+
+
+
 
 <img width="928" height="701" alt="image" src="https://github.com/user-attachments/assets/4405ff47-4eb7-4a8a-88db-66d76e20bd1c" />
 
