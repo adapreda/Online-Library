@@ -1,38 +1,39 @@
-# Librarie Digitala
-## Baza de date pentru gestionarea unui magazin online de ebook-uri
+# Digital Library
+
+## Database for managing an online ebook store
 
 ---
 
-## Descriere generala
+## General Description
 
-Proiectul **"Librarie Digitala"** consta in proiectarea si implementarea unei baze de date relationale destinata gestionarii activitatii unui magazin online de ebook-uri. Baza de date este realizata in **Oracle Database 21c**, utilizand limbajul **SQL** si extensiile **PL/SQL**, respectand principiile de modelare conceptuala, logica si fizica studiate in cadrul cursului *Sisteme de Gestionare si Baze de Date*.
+The **"Digital Library"** project consists of the design and implementation of a relational database intended to manage the activity of an online ebook store. The database is developed in **Oracle Database 21c**, using **SQL** and **PL/SQL** extensions, while following the conceptual, logical, and physical modeling principles studied in the *Database Management Systems* course.
 
-Implementarea acopera atat structura datelor, cat si regulile de business, validate prin constrangeri, triggere si subprograme stocate.
+The implementation covers both the data structure and the business rules, validated through constraints, triggers, and stored subprograms.
 
-Pentru implementare a fost utilizat **Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 – Production**, pe **Windows 11**, fara utilizarea unei masini virtuale.
-
----
-
-## Scopul bazei de date
-
-Scopul principal al bazei de date este de a permite:
-
-- administrarea eficienta a ebook-urilor disponibile intr-o librarie digitala;
-- gestionarea autorilor, editurilor si categoriilor literare;
-- evidenta utilizatorilor si a comenzilor plasate de acestia;
-- aplicarea si monitorizarea discounturilor;
-- pastrarea istoricului comenzilor si recenziilor;
-- validarea automata a regulilor de integritate si a cerintelor functionale.
-
-Baza de date ofera suport complet pentru functionarea unei platforme de vanzare si distributie de carti electronice.
+The implementation was developed using **Oracle Database 21c Enterprise Edition Release 21.0.0.0.0 – Production**, on **Windows 11**, without the use of a virtual machine.
 
 ---
 
-## Diagrama entitate-relatie
+## Database Purpose
 
-Diagrama entitate-relatie descrie structura logica a bazei de date, evidentiind entitatile principale, atributele acestora si relatiile dintre ele.
+The main purpose of the database is to enable:
 
-### Entitati fundamentale
+- efficient management of ebooks available in a digital library;
+- management of authors, publishers, and literary categories;
+- tracking users and the orders placed by them;
+- applying and monitoring discounts;
+- maintaining the history of orders and reviews;
+- automatic validation of integrity rules and functional requirements.
+
+The database provides complete support for the operation of a platform for selling and distributing electronic books.
+
+---
+
+## Entity-Relationship Diagram
+
+The entity-relationship diagram describes the logical structure of the database, highlighting the main entities, their attributes, and the relationships between them.
+
+### Main Entities
 
 - AUTORI  
 - EDITURI  
@@ -44,69 +45,69 @@ Diagrama entitate-relatie descrie structura logica a bazei de date, evidentiind 
 - RECENZII  
 - DISCOUNTURI  
 
-<img width="928" height="701" alt="Diagrama ER" src="https://github.com/user-attachments/assets/4405ff47-4eb7-4a8a-88db-66d76e20bd1c" />
+<img width="928" height="701" alt="ER Diagram" src="https://github.com/user-attachments/assets/4405ff47-4eb7-4a8a-88db-66d76e20bd1c" />
 
 ---
 
-## Diagrama conceptuala
+## Conceptual Diagram
 
-Diagrama conceptuala detaliaza structura fiecarei entitati, evidentiind atributele, cheile primare si cheile straine, precum si legaturile dintre tabele.
+The conceptual diagram details the structure of each entity, highlighting the attributes, primary keys, foreign keys, and the relationships between tables.
 
-<img width="971" height="771" alt="Diagrama conceptuala" src="https://github.com/user-attachments/assets/ee908015-d754-4616-8da3-a86dd7b98802" />
-
----
-
-## Implementarea bazei de date
-
-Implementarea bazei de date include:
-
-- definirea tabelelor cu chei primare si chei externe;
-- constrangeri de tip **NOT NULL**, **UNIQUE**, **CHECK**;
-- utilizarea **SEQUENCE** pentru generarea automata a identificatorilor;
-- respectarea regulilor de integritate referentiala.
+<img width="971" height="771" alt="Conceptual Diagram" src="https://github.com/user-attachments/assets/ee908015-d754-4616-8da3-a86dd7b98802" />
 
 ---
 
-## Reguli de business
+## Database Implementation
 
-Regulile de business sunt implementate prin:
+The database implementation includes:
 
-- constrangeri **CHECK** (ex: valori valide pentru rating, pret, numar de pagini);
-- triggere **LMD** (la nivel de comanda si linie);
-- triggere **LDD** (interzicerea stergerii unor obiecte critice).
-
-### Exemple de reguli implementate
-
-- un utilizator poate lasa recenzie doar pentru ebook-uri achizitionate;
-- comenzile nu pot fi modificate sau sterse;
-- ebook-urile comandate nu pot fi sterse;
-- discounturile expirate nu pot fi aplicate;
-- datele calendaristice nu pot fi in viitor.
+- table definitions with primary and foreign keys;
+- **NOT NULL**, **UNIQUE**, and **CHECK** constraints;
+- use of **SEQUENCE** objects for automatic identifier generation;
+- enforcement of referential integrity rules.
 
 ---
 
-## Proceduri, functii si PL/SQL
+## Business Rules
 
-Proiectul contine:
+The business rules are implemented through:
 
-- proceduri stocate cu:
-  - tablouri indexate;
-  - tablouri imbricate;
+- **CHECK** constraints (e.g. valid values for rating, price, number of pages);
+- **DML triggers** at both statement and row level;
+- **DDL triggers** to prevent the deletion of critical objects.
+
+### Examples of Implemented Rules
+
+- a user can leave a review only for ebooks they have purchased;
+- orders cannot be modified or deleted;
+- ordered ebooks cannot be deleted;
+- expired discounts cannot be applied;
+- dates cannot be set in the future.
+
+---
+
+## Procedures, Functions, and PL/SQL
+
+The project includes:
+
+- stored procedures using:
+  - associative arrays;
+  - nested tables;
   - VARRAY;
-- functii ce utilizeaza interogari complexe cu minimum 3–5 tabele;
-- utilizarea cursoarelor simple si parametrizate;
-- tratarea exceptiilor standard si definite de utilizator.
+- functions using complex queries involving at least 3–5 tables;
+- use of simple and parameterized cursors;
+- handling of standard and user-defined exceptions.
 
 ---
 
-## Pachet PL/SQL pentru recenzii
+## PL/SQL Package for Reviews
 
-Este implementat un pachet PL/SQL dedicat gestionarii recenziilor, care include:
+A dedicated PL/SQL package is implemented for review management and includes:
 
-- tipuri de date complexe (**RECORD**, **TABLE**);
-- functii pentru calculul mediei ratingurilor;
-- proceduri pentru adaugarea si stergerea recenziilor.
+- complex data types (**RECORD**, **TABLE**);
+- functions for calculating average ratings;
+- procedures for adding and deleting reviews.
 
-Acest pachet ofera un flux complet de gestionare a recenziilor in cadrul aplicatiei.
+This package provides a complete workflow for managing reviews within the application.
 
 ---
